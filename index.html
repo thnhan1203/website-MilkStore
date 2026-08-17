@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MilkStore - Thế Giới Sữa Chính Hãng</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <i class="fa-solid fa-cow"></i> MilkStore
+            </div>
+            
+            <!-- Menu điều hướng -->
+            <ul class="nav-links">
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#productGrid">Sản Phẩm</a></li>
+                <li><a href="#aboutSection">Giới Thiệu</a></li>
+                <li><a href="#contactFooter">Liên Hệ</a></li>
+            </ul>
+
+            <!-- Ô tìm kiếm sản phẩm -->
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Tìm kiếm sữa, nhãn hiệu...">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="openCartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Dinh Dưỡng Toàn Diện Cho Gia Đình</h1>
+        <p>100% Sữa chính hãng từ các thương hiệu uy tín hàng đầu thế giới</p>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h2 class="section-title" id="productGrid"><i class="fa-solid fa-fire text-danger"></i> Sản Phẩm Nổi Bật</h2>
+        <div class="product-grid" id="productGridContainer">
+            <!-- Sản phẩm sẽ được render tự động qua JS -->
+        </div>
+    </main>
+
+    <!-- About Section ngắn gọn -->
+    <section class="about-section" id="aboutSection">
+        <div class="container about-content">
+            <h2>Về MilkStore</h2>
+            <p>Chúng tôi tự hào là đơn vị cung cấp các dòng sản phẩm sữa bột, sữa tươi, sữa dinh dưỡng đặc biệt chính hãng hàng đầu Việt Nam. Cam kết chất lượng, an toàn sức khỏe cho mọi lứa tuổi từ trẻ em đến người cao tuổi.</p>
+        </div>
+    </section>
+
+    <!-- Footer Section (Địa chỉ, SĐT, Email, Mạng xã hội) -->
+    <footer class="site-footer" id="contactFooter">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <i class="fa-solid fa-cow"></i> MilkStore
+                </div>
+                <p>Mang nguồn dinh dưỡng tinh khiết và chất lượng nhất đến mọi gia đình Việt.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://zalo.me" target="_blank" title="Zalo"><i class="fa-solid fa-comment-sms"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Danh Mục Nổi Bật</h3>
+                <ul>
+                    <li><a href="#">Sữa bột trẻ em</a></li>
+                    <li><a href="#">Sữa tươi tiệt trùng</a></li>
+                    <li><a href="#">Sữa dinh dưỡng đặc biệt</a></li>
+                    <li><a href="#">Sữa cho người cao tuổi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Thông Tin Liên Hệ</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 123 Đường Nguyễn Văn Bảo, Phường 4, Gò Vấp, TP.HCM</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: 0909 123 456</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: support@milkstore.vn</p>
+                <p><i class="fa-solid fa-clock"></i> Giờ làm việc: 8:00 - 21:00 (T2 - CN)</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Đăng Ký Nhận Tin</h3>
+                <p>Nhận thông tin khuyến mãi và các dòng sữa mới nhất.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Nhập email của bạn...">
+                    <button onclick="alert('Đăng ký nhận tin thành công!')">Gửi</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MilkStore. Thiết kế bởi Nhân.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer / Sidebar -->
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <h2>Giỏ Hàng Của Bạn</h2>
+                <button class="close-cart-btn" id="closeCartBtn">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="cart-body" id="cartBody">
+                <!-- Nội dung giỏ hàng -->
+            </div>
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Tạm tính:</span>
+                        <span id="subTotal">0 đ</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí vận chuyển:</span>
+                        <span id="shippingFee">30.000 đ</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Tổng cộng:</span>
+                        <span id="finalTotal">0 đ</span>
+                    </div>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">Tiến Hành Thanh Toán</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link JS -->
+    <script src="script.js"></script>
+</body>
+</html>

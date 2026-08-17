@@ -1,0 +1,14 @@
+# --- VS Code ---
+.vscode/
+
+# --- Hệ điều hành ---
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# --- Node.js & Dependencies (dùng khi sau này làm dự án backend) ---
+node_modules/
+npm-debug.log*
+
+# --- Môi trường / Biến bảo mật ---
+.env
