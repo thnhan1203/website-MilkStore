@@ -1,150 +1,897 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MilkStore - Thế Giới Sữa Chính Hãng</title>
-    <!-- Google Fonts & FontAwesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>MilkStore — Thế Giới Sữa Chính Hãng | Giao Hàng Tận Nơi</title>
+    <meta name="description"
+        content="MilkStore - Chuyên cung cấp sữa bột, sữa tươi, sữa dinh dưỡng chính hãng cho mọi lứa tuổi. Giao hàng toàn quốc, cam kết chất lượng.">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Link CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- Header & Navigation -->
-    <header>
+    <!-- ===================== TOAST NOTIFICATION ===================== -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMsg">Đã thêm vào giỏ hàng!</span>
+    </div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header id="mainHeader">
         <div class="navbar">
-            <div class="logo">
-                <i class="fa-solid fa-cow"></i> MilkStore
-            </div>
-            
-            <!-- Menu điều hướng -->
-            <ul class="nav-links">
-                <li><a href="#" class="active">Trang Chủ</a></li>
-                <li><a href="#productGrid">Sản Phẩm</a></li>
-                <li><a href="#aboutSection">Giới Thiệu</a></li>
-                <li><a href="#contactFooter">Liên Hệ</a></li>
+            <!-- Logo -->
+            <a href="#" class="logo" id="logoLink">
+                <div class="logo-icon"><i class="fa-solid fa-cow"></i></div>
+                <span>Milk<span class="logo-accent">Store</span></span>
+            </a>
+
+            <!-- Nav links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#heroSection" class="nav-link active">Trang Chủ</a></li>
+                <li><a href="#productSection" class="nav-link">Sản Phẩm</a></li>
+                <li><a href="#aboutSection" class="nav-link">Về Chúng Tôi</a></li>
+                <li><a href="#contactFooter" class="nav-link">Liên Hệ</a></li>
             </ul>
 
-            <!-- Ô tìm kiếm sản phẩm -->
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Tìm kiếm sữa, nhãn hiệu...">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <!-- Search -->
+            <div class="search-box" id="searchBoxNav">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Tìm sữa, thương hiệu...">
             </div>
 
+            <!-- Nav Actions -->
             <div class="nav-actions">
-                <button class="cart-btn" id="openCartBtn">
+                <button class="btn-icon" id="authBtn" title="Đăng nhập">
+                    <i class="fa-regular fa-user"></i>
+                    <span class="btn-label" id="authLabel">Đăng Nhập</span>
+                </button>
+                <button class="btn-icon cart-btn" id="openCartBtn" title="Giỏ hàng">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <!-- Hamburger -->
+                <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Dinh Dưỡng Toàn Diện Cho Gia Đình</h1>
-        <p>100% Sữa chính hãng từ các thương hiệu uy tín hàng đầu thế giới</p>
+    <!-- Mobile Nav Drawer -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+        <div class="mobile-nav">
+            <button class="close-mobile-nav" id="closeMobileNav"><i class="fa-solid fa-xmark"></i></button>
+            <ul>
+                <li><a href="#heroSection" onclick="closeMobileNavFn()">Trang Chủ</a></li>
+                <li><a href="#productSection" onclick="closeMobileNavFn()">Sản Phẩm</a></li>
+                <li><a href="#aboutSection" onclick="closeMobileNavFn()">Về Chúng Tôi</a></li>
+                <li><a href="#contactFooter" onclick="closeMobileNavFn()">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section class="hero" id="heroSection">
+        <!-- Slider -->
+        <div class="hero-slider" id="heroSlider">
+            <!-- Slide 1: Mẹ & Bé -->
+            <div class="slide slide-1 active">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <span class="slide-badge">🍼 Dành Cho Mẹ & Bé</span>
+                        <h1>Dinh Dưỡng Vàng<br><span class="gradient-text">Cho Thiên Thần Nhỏ</span></h1>
+                        <p>Sữa công thức chính hãng từ các thương hiệu uy tín hàng đầu thế giới, giúp bé phát triển
+                            toàn diện.</p>
+                        <div class="slide-actions">
+                            <a href="#productSection" class="btn-primary">
+                                <i class="fa-solid fa-baby"></i> Mua Ngay
+                            </a>
+                            <a href="#aboutSection" class="btn-outline-white">Tìm Hiểu Thêm</a>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="hero-blob">
+                            <img
+                                src="https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=500"
+                                alt="Sữa cho mẹ và bé">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Người cao tuổi -->
+            <div class="slide slide-2">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <span class="slide-badge">👴 Sức Khỏe Người Cao Tuổi</span>
+                        <h1>Chăm Sóc<br><span class="gradient-text">Đấng Sinh Thành</span></h1>
+                        <p>Sữa dinh dưỡng đặc biệt giàu canxi, vitamin D, hỗ trợ xương chắc khỏe và sức đề kháng cho
+                            người lớn tuổi.</p>
+                        <div class="slide-actions">
+                            <a href="#productSection" class="btn-primary">
+                                <i class="fa-solid fa-heart-pulse"></i> Xem Ngay
+                            </a>
+                            <a href="#aboutSection" class="btn-outline-white">Tìm Hiểu Thêm</a>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="hero-blob">
+                            <img
+                                src="https://images.unsplash.com/photo-1559181567-c3190ca9d6e3?auto=format&fit=crop&q=80&w=500"
+                                alt="Sữa dinh dưỡng người cao tuổi">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Gym / Thể thao -->
+            <div class="slide slide-3">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <span class="slide-badge">💪 Dành Cho Người Tập Gym</span>
+                        <h1>Bứt Phá<br><span class="gradient-text">Giới Hạn Bản Thân</span></h1>
+                        <p>Sữa protein, whey chính hãng hỗ trợ phục hồi cơ bắp nhanh chóng, tăng hiệu suất tập luyện
+                            tối đa.</p>
+                        <div class="slide-actions">
+                            <a href="#productSection" class="btn-primary">
+                                <i class="fa-solid fa-dumbbell"></i> Khám Phá
+                            </a>
+                            <a href="#aboutSection" class="btn-outline-white">Tìm Hiểu Thêm</a>
+                        </div>
+                    </div>
+                    <div class="slide-visual">
+                        <div class="hero-blob">
+                            <img
+                                src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=500"
+                                alt="Sữa protein gym">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider controls -->
+        <div class="slider-controls">
+            <button class="slider-dot active" onclick="goToSlide(0)" id="dot0"></button>
+            <button class="slider-dot" onclick="goToSlide(1)" id="dot1"></button>
+            <button class="slider-dot" onclick="goToSlide(2)" id="dot2"></button>
+        </div>
+        <button class="slider-arrow prev" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-arrow next" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <!-- Stats bar -->
+        <div class="hero-stats">
+            <div class="stat-item">
+                <strong>500+</strong><span>Sản Phẩm</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <strong>50+</strong><span>Thương Hiệu</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <strong>100K+</strong><span>Khách Hàng</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <strong>100%</strong><span>Chính Hãng</span>
+            </div>
+        </div>
     </section>
 
-    <!-- Main Content -->
-    <main class="container">
-        <h2 class="section-title" id="productGrid"><i class="fa-solid fa-fire text-danger"></i> Sản Phẩm Nổi Bật</h2>
-        <div class="product-grid" id="productGridContainer">
-            <!-- Sản phẩm sẽ được render tự động qua JS -->
+    <!-- ===================== CATEGORY BAR ===================== -->
+    <section class="category-section" id="categorySection">
+        <div class="container">
+            <div class="category-bar" id="categoryBar">
+                <button class="category-btn active" data-cat="all">
+                    <span class="cat-icon">🛍️</span>
+                    <span>Tất Cả</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa bột trẻ em">
+                    <span class="cat-icon">🍼</span>
+                    <span>Sữa Bột Trẻ Em</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa mẹ bầu">
+                    <span class="cat-icon">🤰</span>
+                    <span>Sữa Mẹ Bầu</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa tươi">
+                    <span class="cat-icon">🥛</span>
+                    <span>Sữa Tươi</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa người cao tuổi">
+                    <span class="cat-icon">👴</span>
+                    <span>Người Cao Tuổi</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa Gym">
+                    <span class="cat-icon">💪</span>
+                    <span>Gym & Thể Thao</span>
+                </button>
+                <button class="category-btn" data-cat="Sữa chua uống">
+                    <span class="cat-icon">🫙</span>
+                    <span>Sữa Chua Uống</span>
+                </button>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- About Section ngắn gọn -->
+    <!-- ===================== BRANDS SECTION ===================== -->
+    <section class="brands-section" id="brandsSection">
+        <div class="container">
+            <div class="brands-header">
+                <h2 class="section-title"><i class="fa-solid fa-award"></i> Thương Hiệu Đối Tác</h2>
+                <p class="brands-subtitle">Chúng tôi phân phối chính hãng từ các thương hiệu sữa uy tín hàng đầu</p>
+            </div>
+            <div class="brand-grid" id="brandGrid">
+                <!-- Vinamilk -->
+                <button class="brand-card" data-brand="Vinamilk" onclick="filterByBrand('Vinamilk')" id="brandVinamilk">
+                    <div class="brand-card__logo brand-card__logo--vinamilk">
+                        <span class="brand-logo-text">VINAMILK</span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">Vinamilk</p>
+                        <p class="brand-card__desc">Tập đoàn sữa số 1 Việt Nam</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+                <!-- TH true MILK -->
+                <button class="brand-card" data-brand="TH true MILK" onclick="filterByBrand('TH true MILK')" id="brandTH">
+                    <div class="brand-card__logo brand-card__logo--th">
+                        <span class="brand-logo-text">TH<br><small>true MILK</small></span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">TH true MILK</p>
+                        <p class="brand-card__desc">Sữa tươi sạch từ thiên nhiên</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+                <!-- Abbott -->
+                <button class="brand-card" data-brand="Abbott" onclick="filterByBrand('Abbott')" id="brandAbbott">
+                    <div class="brand-card__logo brand-card__logo--abbott">
+                        <span class="brand-logo-text">Abbott</span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">Abbott</p>
+                        <p class="brand-card__desc">Similac, Ensure, Glucerna</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+                <!-- Nestlé -->
+                <button class="brand-card" data-brand="Nestlé" onclick="filterByBrand('Nestlé')" id="brandNestle">
+                    <div class="brand-card__logo brand-card__logo--nestle">
+                        <span class="brand-logo-text">Nestlé</span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">Nestlé</p>
+                        <p class="brand-card__desc">NAN, Milo, Nestlé Bear Brand</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+                <!-- Friso -->
+                <button class="brand-card" data-brand="Friso" onclick="filterByBrand('Friso')" id="brandFriso">
+                    <div class="brand-card__logo brand-card__logo--friso">
+                        <span class="brand-logo-text">Friso</span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">Friso</p>
+                        <p class="brand-card__desc">FrieslandCampina Hà Lan</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+                <!-- Nutricare -->
+                <button class="brand-card" data-brand="Nutricare" onclick="filterByBrand('Nutricare')" id="brandNutricare">
+                    <div class="brand-card__logo brand-card__logo--nutricare">
+                        <span class="brand-logo-text">Nutricare</span>
+                    </div>
+                    <div class="brand-card__info">
+                        <p class="brand-card__name">Nutricare</p>
+                        <p class="brand-card__desc">Dinh dưỡng chuyên biệt</p>
+                        <span class="brand-card__tag">Xem sản phẩm →</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PRODUCT SECTION ===================== -->
+    <section class="product-section" id="productSection">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="filter-left">
+                    <h2 class="section-title" id="sectionTitleProduct">
+                        <i class="fa-solid fa-fire-flame-curved"></i> Sản Phẩm Nổi Bật
+                    </h2>
+                </div>
+                <div class="filter-right">
+                    <!-- Filter thương hiệu -->
+                    <select class="filter-select" id="brandFilter">
+                        <option value="all">🏷️ Tất cả thương hiệu</option>
+                        <option value="Vinamilk">Vinamilk</option>
+                        <option value="Abbott">Abbott</option>
+                        <option value="Mead Johnson">Mead Johnson</option>
+                        <option value="TH true MILK">TH true MILK</option>
+                        <option value="Friso">Friso</option>
+                        <option value="Nestlé">Nestlé</option>
+                        <option value="Optimum">Optimum</option>
+                    </select>
+                    <!-- Sort -->
+                    <select class="filter-select" id="sortFilter">
+                        <option value="default">↕️ Sắp xếp</option>
+                        <option value="price-asc">💰 Giá tăng dần</option>
+                        <option value="price-desc">💸 Giá giảm dần</option>
+                        <option value="name-asc">🔤 Tên A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGridContainer">
+                <!-- Rendered by JS -->
+            </div>
+
+            <!-- Load more -->
+            <div class="load-more-wrap">
+                <button class="btn-load-more" id="loadMoreBtn">
+                    <i class="fa-solid fa-rotate"></i> Xem Thêm Sản Phẩm
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
     <section class="about-section" id="aboutSection">
-        <div class="container about-content">
-            <h2>Về MilkStore</h2>
-            <p>Chúng tôi tự hào là đơn vị cung cấp các dòng sản phẩm sữa bột, sữa tươi, sữa dinh dưỡng đặc biệt chính hãng hàng đầu Việt Nam. Cam kết chất lượng, an toàn sức khỏe cho mọi lứa tuổi từ trẻ em đến người cao tuổi.</p>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <span class="section-badge">Về Chúng Tôi</span>
+                    <h2>Tại Sao Chọn <span class="gradient-text">MilkStore?</span></h2>
+                    <p>Chúng tôi tự hào là đơn vị phân phối sữa chính hãng hàng đầu Việt Nam. Với hơn 10 năm kinh
+                        nghiệm, MilkStore cam kết mang đến nguồn dinh dưỡng tinh khiết, an toàn cho mọi gia đình.</p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div>
+                                <h4>100% Chính Hãng</h4>
+                                <p>Nhập khẩu trực tiếp, có đầy đủ chứng nhận</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div>
+                                <h4>Giao Hàng Nhanh</h4>
+                                <p>Toàn quốc trong 2-3 ngày làm việc</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                            <div>
+                                <h4>Hỗ Trợ 24/7</h4>
+                                <p>Tư vấn dinh dưỡng miễn phí từ chuyên gia</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-rotate-left"></i></div>
+                            <div>
+                                <h4>Đổi Trả Dễ Dàng</h4>
+                                <p>Hoàn tiền 100% nếu không đúng hàng</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600"
+                        alt="MilkStore chất lượng">
+                    <div class="about-badge-float">
+                        <i class="fa-solid fa-award"></i>
+                        <div>
+                            <strong>Tin Cậy</strong>
+                            <span>#1 Việt Nam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Footer Section (Địa chỉ, SĐT, Email, Mạng xã hội) -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer" id="contactFooter">
         <div class="footer-container">
             <div class="footer-col">
                 <div class="footer-logo">
-                    <i class="fa-solid fa-cow"></i> MilkStore
+                    <i class="fa-solid fa-cow"></i> Milk<span>Store</span>
                 </div>
                 <p>Mang nguồn dinh dưỡng tinh khiết và chất lượng nhất đến mọi gia đình Việt.</p>
                 <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://facebook.com" target="_blank" title="Facebook"><i
+                            class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://zalo.me" target="_blank" title="Zalo"><i class="fa-solid fa-comment-sms"></i></a>
-                    <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://youtube.com" target="_blank" title="Youtube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com" target="_blank" title="Youtube"><i
+                            class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-
             <div class="footer-col">
-                <h3>Danh Mục Nổi Bật</h3>
+                <h3>Danh Mục Sản Phẩm</h3>
                 <ul>
-                    <li><a href="#">Sữa bột trẻ em</a></li>
-                    <li><a href="#">Sữa tươi tiệt trùng</a></li>
-                    <li><a href="#">Sữa dinh dưỡng đặc biệt</a></li>
-                    <li><a href="#">Sữa cho người cao tuổi</a></li>
+                    <li><a href="#productSection">Sữa bột trẻ em</a></li>
+                    <li><a href="#productSection">Sữa mẹ bầu</a></li>
+                    <li><a href="#productSection">Sữa tươi tiệt trùng</a></li>
+                    <li><a href="#productSection">Sữa người cao tuổi</a></li>
+                    <li><a href="#productSection">Sữa Gym & Protein</a></li>
                 </ul>
             </div>
-
             <div class="footer-col">
                 <h3>Thông Tin Liên Hệ</h3>
                 <p><i class="fa-solid fa-location-dot"></i> 123 Đường Nguyễn Văn Bảo, Phường 4, Gò Vấp, TP.HCM</p>
-                <p><i class="fa-solid fa-phone"></i> Hotline: 0909 123 456</p>
-                <p><i class="fa-solid fa-envelope"></i> Email: support@milkstore.vn</p>
-                <p><i class="fa-solid fa-clock"></i> Giờ làm việc: 8:00 - 21:00 (T2 - CN)</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: <a href="tel:0909123456">0909 123 456</a></p>
+                <p><i class="fa-solid fa-envelope"></i> <a href="mailto:support@milkstore.vn">support@milkstore.vn</a>
+                </p>
+                <p><i class="fa-solid fa-clock"></i> 8:00 - 21:00 (T2 - CN)</p>
             </div>
-
             <div class="footer-col">
                 <h3>Đăng Ký Nhận Tin</h3>
-                <p>Nhận thông tin khuyến mãi và các dòng sữa mới nhất.</p>
+                <p>Nhận thông tin khuyến mãi và sản phẩm mới nhất từ MilkStore.</p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Nhập email của bạn...">
-                    <button onclick="alert('Đăng ký nhận tin thành công!')">Gửi</button>
+                    <input type="email" id="newsletterEmail" placeholder="Nhập email của bạn...">
+                    <button onclick="subscribeNewsletter()"><i class="fa-solid fa-paper-plane"></i></button>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MilkStore. Thiết kế bởi Nhân.</p>
+            <p>© 2026 MilkStore. Thiết kế bởi Nhân. | Chính sách bảo mật | Điều khoản sử dụng</p>
         </div>
     </footer>
 
-    <!-- Cart Drawer / Sidebar -->
+    <!-- ===================== CART DRAWER ===================== -->
     <div class="cart-overlay" id="cartOverlay">
         <div class="cart-drawer">
             <div class="cart-header">
-                <h2>Giỏ Hàng Của Bạn</h2>
-                <button class="close-cart-btn" id="closeCartBtn">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+                <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
+                <button class="close-cart-btn" id="closeCartBtn"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="cart-body" id="cartBody">
-                <!-- Nội dung giỏ hàng -->
-            </div>
+            <div class="cart-body" id="cartBody"></div>
             <div class="cart-footer" id="cartFooter">
                 <div class="cart-summary">
                     <div class="summary-row">
                         <span>Tạm tính:</span>
                         <span id="subTotal">0 đ</span>
                     </div>
-                    <div class="summary-row">
+                    <div class="summary-row shipping-row">
                         <span>Phí vận chuyển:</span>
                         <span id="shippingFee">30.000 đ</span>
+                    </div>
+                    <div class="summary-row promo-row" id="promoRow" style="display:none;">
+                        <span>Giảm giá:</span>
+                        <span id="promoDiscount" style="color:#D63384;">- 0 đ</span>
                     </div>
                     <div class="summary-row total">
                         <span>Tổng cộng:</span>
                         <span id="finalTotal">0 đ</span>
                     </div>
                 </div>
-                <button class="checkout-btn" onclick="checkout()">Tiến Hành Thanh Toán</button>
+                <!-- Voucher -->
+                <div class="voucher-row">
+                    <input type="text" id="voucherInput" placeholder="Nhập mã giảm giá...">
+                    <button onclick="applyVoucher()">Áp dụng</button>
+                </div>
+                <button class="checkout-btn" onclick="openCheckoutModal()">
+                    <i class="fa-solid fa-credit-card"></i> Tiến Hành Thanh Toán
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Link JS -->
+    <!-- ===================== PRODUCT DETAIL MODAL ===================== -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal product-modal">
+            <button class="modal-close" onclick="closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="product-modal-content" id="productModalContent"></div>
+        </div>
+    </div>
+
+    <!-- ===================== AUTH MODAL ===================== -->
+    <div class="modal-overlay" id="authModal">
+        <div class="modal auth-modal">
+            <button class="modal-close" onclick="closeAuthModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab" onclick="switchTab('login')">Đăng Nhập</button>
+                <button class="auth-tab" id="registerTab" onclick="switchTab('register')">Đăng Ký</button>
+            </div>
+
+            <!-- Login Form -->
+            <div class="auth-form" id="loginForm">
+                <div class="auth-header">
+                    <div class="auth-icon"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Chào Mừng Trở Lại!</h3>
+                    <p>Đăng nhập để xem lịch sử đơn hàng & ưu đãi riêng</p>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-icon-wrap">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <div class="input-icon-wrap">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="demo-account-hint" onclick="fillDemoLogin()" title="Bấm để tự động điền">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Demo chấm điểm: <strong>demo@milkstore.vn</strong> (MK: <strong>123456</strong>) - <u>Bấm để điền</u></span>
+                </div>
+                <button class="btn-auth" onclick="login()"><i class="fa-solid fa-right-to-bracket"></i> Đăng Nhập</button>
+                <p class="auth-forgot"><a onclick="forgotPassword()"><i class="fa-solid fa-lock"></i> Quên mật khẩu?</a></p>
+                <p class="auth-switch">Chưa có tài khoản? <a onclick="switchTab('register')">Đăng ký ngay</a></p>
+            </div>
+
+            <!-- Register Form -->
+            <div class="auth-form hidden" id="registerForm">
+                <div class="auth-header">
+                    <div class="auth-icon"><i class="fa-solid fa-user-plus"></i></div>
+                    <h3>Tạo Tài Khoản Mới</h3>
+                    <p>Đăng ký để nhận ưu đãi độc quyền từ MilkStore</p>
+                </div>
+                <div class="form-group">
+                    <label>Họ và Tên</label>
+                    <div class="input-icon-wrap">
+                        <i class="fa-regular fa-user"></i>
+                        <input type="text" id="regName" placeholder="Nguyễn Văn A">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <div class="input-icon-wrap">
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="email@example.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Mật khẩu</label>
+                    <div class="input-icon-wrap">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="regPassword" placeholder="Tối thiểu 6 ký tự">
+                    </div>
+                </div>
+                <button class="btn-auth" onclick="register()"><i class="fa-solid fa-user-plus"></i> Đăng Ký</button>
+                <p class="auth-switch">Đã có tài khoản? <a onclick="switchTab('login')">Đăng nhập</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== CHECKOUT MODAL (3-STEP) ===================== -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal checkout-modal">
+            <button class="modal-close" onclick="closeCheckoutModal()"><i class="fa-solid fa-xmark"></i></button>
+
+            <!-- Step Progress Bar -->
+            <div class="checkout-stepper">
+                <div class="stepper-step active" id="step1Indicator">
+                    <div class="stepper-circle">1</div>
+                    <span>Thông tin</span>
+                </div>
+                <div class="stepper-line" id="stepLine1"></div>
+                <div class="stepper-step" id="step2Indicator">
+                    <div class="stepper-circle">2</div>
+                    <span>Thanh toán</span>
+                </div>
+                <div class="stepper-line" id="stepLine2"></div>
+                <div class="stepper-step" id="step3Indicator">
+                    <div class="stepper-circle"><i class="fa-solid fa-check"></i></div>
+                    <span>Hoàn tất</span>
+                </div>
+            </div>
+
+            <!-- ---- STEP 1: Thông tin giao hàng ---- -->
+            <div class="checkout-step" id="checkoutStep1">
+                <div class="checkout-header">
+                    <h3><i class="fa-solid fa-location-dot"></i> Thông Tin Giao Hàng</h3>
+                </div>
+                <div class="checkout-body">
+                    <div class="checkout-section">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Họ và Tên <span class="req">*</span></label>
+                                <input type="text" id="checkoutName" placeholder="Nguyễn Văn A">
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại <span class="req">*</span></label>
+                                <input type="tel" id="checkoutPhone" placeholder="0909 123 456">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Địa chỉ giao hàng <span class="req">*</span></label>
+                            <input type="text" id="checkoutAddress" placeholder="Số nhà, tên đường, phường/xã...">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Tỉnh/Thành phố</label>
+                                <select id="checkoutCity">
+                                    <option value="">-- Chọn tỉnh thành --</option>
+                                    <option value="hcm">TP. Hồ Chí Minh</option>
+                                    <option value="hn">Hà Nội</option>
+                                    <option value="dn">Đà Nẵng</option>
+                                    <option value="ct">Cần Thơ</option>
+                                    <option value="bd">Bình Dương</option>
+                                    <option value="dnai">Đồng Nai</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ghi chú đơn hàng</label>
+                                <input type="text" id="checkoutNote" placeholder="Giao giờ hành chính...">
+                            </div>
+                        </div>
+                        <!-- Tóm tắt đơn -->
+                        <div class="checkout-section">
+                            <h4><i class="fa-solid fa-list-check"></i> Tóm Tắt Đơn Hàng</h4>
+                            <div id="checkoutSummary" class="checkout-summary-list"></div>
+                            <div class="checkout-total-row">
+                                <span>Tổng thanh toán:</span>
+                                <span id="checkoutTotal" class="checkout-total-price">0 đ</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout-footer">
+                    <button class="btn-back-cart" onclick="backToCart()">
+                        <i class="fa-solid fa-arrow-left"></i> Giỏ Hàng
+                    </button>
+                    <button class="btn-next-step" onclick="goToCheckoutStep(2)">
+                        Tiếp Theo <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---- STEP 2: Phương thức thanh toán ---- -->
+            <div class="checkout-step hidden" id="checkoutStep2">
+                <div class="checkout-header">
+                    <h3><i class="fa-solid fa-credit-card"></i> Phương Thức Thanh Toán</h3>
+                </div>
+                <div class="checkout-body">
+                    <div class="payment-methods-grid">
+                        <!-- COD -->
+                        <label class="payment-option-card" id="pay-cod">
+                            <input type="radio" name="paymentMethod" value="cod" checked>
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-cod-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">Tiền mặt (COD)</span>
+                                    <span class="payment-sub">Thanh toán khi nhận hàng</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                        <!-- Chuyển khoản -->
+                        <label class="payment-option-card" id="pay-bank">
+                            <input type="radio" name="paymentMethod" value="bank">
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-bank-icon"><i class="fa-solid fa-building-columns"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">Chuyển khoản ngân hàng</span>
+                                    <span class="payment-sub">Quét QR hoặc chuyển thủ công</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                        <!-- MoMo -->
+                        <label class="payment-option-card" id="pay-momo">
+                            <input type="radio" name="paymentMethod" value="momo">
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-momo-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">Ví MoMo</span>
+                                    <span class="payment-sub">Quét mã QR thanh toán nhanh</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                        <!-- ZaloPay -->
+                        <label class="payment-option-card" id="pay-zalopay">
+                            <input type="radio" name="paymentMethod" value="zalopay">
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-zalopay-icon"><i class="fa-solid fa-z"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">ZaloPay</span>
+                                    <span class="payment-sub">Quét mã QR qua ứng dụng Zalo</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                        <!-- VNPay -->
+                        <label class="payment-option-card" id="pay-vnpay">
+                            <input type="radio" name="paymentMethod" value="vnpay">
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-vnpay-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">VNPay</span>
+                                    <span class="payment-sub">Thẻ ATM nội địa / VISA / Master</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                        <!-- VISA/Mastercard -->
+                        <label class="payment-option-card" id="pay-card">
+                            <input type="radio" name="paymentMethod" value="card">
+                            <div class="payment-option-inner">
+                                <div class="payment-icon pay-card-icon"><i class="fa-brands fa-cc-visa"></i></div>
+                                <div class="payment-details">
+                                    <span class="payment-name">Thẻ Quốc Tế</span>
+                                    <span class="payment-sub">VISA / Mastercard / JCB</span>
+                                </div>
+                                <i class="fa-solid fa-circle-check payment-check"></i>
+                            </div>
+                        </label>
+                    </div>
+
+                    <!-- QR Code Panel (hiện khi chọn bank/momo/zalopay) -->
+                    <div class="qr-panel hidden" id="qrPanel">
+                        <div class="qr-panel__header">
+                            <p id="qrTitle">Quét mã QR để thanh toán</p>
+                            <p id="qrAmount" class="qr-amount"></p>
+                        </div>
+                        <div class="qr-code-wrap" id="qrCodeWrap">
+                            <!-- SVG QR placeholder -->
+                            <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="160" height="160" fill="white"/>
+                                <rect x="10" y="10" width="60" height="60" rx="6" fill="#1E1B2E"/>
+                                <rect x="20" y="20" width="40" height="40" rx="3" fill="white"/>
+                                <rect x="28" y="28" width="24" height="24" rx="2" fill="#1E1B2E"/>
+                                <rect x="90" y="10" width="60" height="60" rx="6" fill="#1E1B2E"/>
+                                <rect x="100" y="20" width="40" height="40" rx="3" fill="white"/>
+                                <rect x="108" y="28" width="24" height="24" rx="2" fill="#1E1B2E"/>
+                                <rect x="10" y="90" width="60" height="60" rx="6" fill="#1E1B2E"/>
+                                <rect x="20" y="100" width="40" height="40" rx="3" fill="white"/>
+                                <rect x="28" y="108" width="24" height="24" rx="2" fill="#1E1B2E"/>
+                                <rect x="90" y="90" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="104" y="90" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="118" y="90" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="132" y="90" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="90" y="104" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="118" y="104" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="90" y="118" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="104" y="118" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="118" y="118" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="132" y="118" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="90" y="132" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="118" y="132" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="132" y="104" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="104" y="132" width="8" height="8" fill="#1E1B2E"/>
+                                <rect x="132" y="132" width="8" height="8" fill="#1E1B2E"/>
+                            </svg>
+                        </div>
+                        <p class="qr-note">Mã QR có hiệu lực trong <span id="qrCountdown">5:00</span></p>
+                        <p class="qr-account" id="qrAccount"></p>
+                    </div>
+
+                    <!-- Logos chấp nhận thanh toán -->
+                    <div class="payment-accepted">
+                        <p class="payment-accepted__label"><i class="fa-solid fa-shield-check"></i> Bảo mật & Chấp nhận</p>
+                        <div class="payment-accepted__logos">
+                            <span class="pay-logo pay-logo--visa">VISA</span>
+                            <span class="pay-logo pay-logo--master">MC</span>
+                            <span class="pay-logo pay-logo--momo">MoMo</span>
+                            <span class="pay-logo pay-logo--zalopay">ZaloPay</span>
+                            <span class="pay-logo pay-logo--vnpay">VNPay</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkout-footer">
+                    <button class="btn-back-cart" onclick="goToCheckoutStep(1)">
+                        <i class="fa-solid fa-arrow-left"></i> Quay Lại
+                    </button>
+                    <button class="btn-confirm-order" onclick="confirmOrder()">
+                        <i class="fa-solid fa-check-circle"></i> Đặt Hàng
+                    </button>
+                </div>
+            </div>
+
+            <!-- ---- STEP 3: Đặt hàng thành công ---- -->
+            <div class="checkout-step hidden" id="checkoutStep3">
+                <div class="checkout-success">
+                    <div class="success-animation">
+                        <div class="success-circle">
+                            <i class="fa-solid fa-check success-icon"></i>
+                        </div>
+                    </div>
+                    <h3 class="success-title">Đặt Hàng Thành Công! 🎉</h3>
+                    <p class="success-sub">Cảm ơn bạn đã tin tưởng MilkStore. Đơn hàng của bạn đang được xử lý.</p>
+                    <div class="success-order-info" id="successOrderInfo"></div>
+                    <div class="success-actions">
+                        <button class="btn-view-orders" onclick="showOrderHistory()">
+                            <i class="fa-solid fa-list-check"></i> Xem Lịch Sử Đơn
+                        </button>
+                        <button class="btn-continue-shopping" onclick="closeCheckoutModal()">
+                            <i class="fa-solid fa-shop"></i> Tiếp Tục Mua Sắm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== ORDER HISTORY MODAL ===================== -->
+    <div class="modal-overlay" id="orderHistoryModal">
+        <div class="modal order-history-modal">
+            <button class="modal-close" onclick="closeOrderHistoryModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="order-history-header">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> Lịch Sử Đơn Hàng</h3>
+            </div>
+            <div class="order-history-body" id="orderHistoryBody">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== USER DROPDOWN ===================== -->
+    <div class="user-dropdown" id="userDropdown" aria-hidden="true">
+        <div class="user-dropdown__arrow"></div>
+        <div class="user-dropdown__user-info" id="dropdownUserInfo"></div>
+        <hr class="dropdown-divider">
+        <button class="user-dropdown__item" onclick="showOrderHistory(); closeUserDropdown();" id="dropdownOrderHistory">
+            <i class="fa-solid fa-list-check"></i> Lịch Sử Đơn Hàng
+        </button>
+        <button class="user-dropdown__item" onclick="logout()" id="dropdownLogout">
+            <i class="fa-solid fa-right-from-bracket"></i> Đăng Xuất
+        </button>
+    </div>
+
+
+    <!-- ===================== FLOATING CONTACT BUTTONS ===================== -->
+    <div class="floating-contact-group" id="floatingContactGroup">
+        <!-- Hotline -->
+        <a href="tel:0909123456" class="floating-btn floating-btn--hotline" title="Gọi Hotline" aria-label="Gọi ngay Hotline 0909 123 456">
+            <span class="floating-btn__pulse"></span>
+            <div class="floating-btn__icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <span class="floating-btn__tooltip">Hotline: 0909 123 456</span>
+        </a>
+
+        <!-- Zalo -->
+        <a href="https://zalo.me/0909123456" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--zalo" title="Chat Zalo" aria-label="Chat qua Zalo">
+            <div class="floating-btn__icon">
+                <svg viewBox="0 0 48 48" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" rx="12" fill="#0068FF"/>
+                    <path d="M24 8C15.163 8 8 15.163 8 24c0 4.274 1.67 8.153 4.394 11.053L10.5 40l5.316-1.858C17.85 39.351 20.85 40 24 40c8.837 0 16-7.163 16-16S32.837 8 24 8z" fill="white"/>
+                    <text x="13" y="28" font-family="Arial" font-size="11" font-weight="bold" fill="#0068FF">Zalo</text>
+                </svg>
+            </div>
+            <span class="floating-btn__tooltip">Chat Zalo</span>
+        </a>
+
+        <!-- Messenger -->
+        <a href="https://m.me/milkstore.vn" target="_blank" rel="noopener noreferrer" class="floating-btn floating-btn--messenger" title="Nhắn tin Facebook" aria-label="Nhắn tin Messenger">
+            <div class="floating-btn__icon">
+                <i class="fa-brands fa-facebook-messenger"></i>
+            </div>
+            <span class="floating-btn__tooltip">Chat Messenger</span>
+        </a>
+
+        <!-- Back to Top -->
+        <button type="button" class="floating-btn floating-btn--backtop" id="btnBackToTop" title="Lên đầu trang" aria-label="Cuộn lên đầu trang">
+            <div class="floating-btn__icon">
+                <i class="fa-solid fa-chevron-up"></i>
+            </div>
+            <span class="floating-btn__tooltip">Lên đầu trang</span>
+        </button>
+    </div>
+
+    <!-- Script -->
     <script src="script.js"></script>
 </body>
+
 </html>
