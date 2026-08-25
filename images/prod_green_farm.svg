@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg_gf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="gf_pack" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#15803d"/>
+      <stop offset="35%" stop-color="#22c55e"/>
+      <stop offset="70%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+    <filter id="shadow_gf" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg_gf)"/>
+  <circle cx="250" cy="250" r="170" fill="#ffffff" opacity="0.65"/>
+  <ellipse cx="250" cy="420" rx="95" ry="18" fill="#86efac" opacity="0.4"/>
+  
+  <g filter="url(#shadow_gf)">
+    <rect x="175" y="120" width="150" height="270" rx="14" fill="url(#gf_pack)"/>
+    <rect x="185" y="130" width="130" height="250" rx="10" fill="#ffffff"/>
+    
+    <!-- Top green banner -->
+    <path d="M 185 130 L 315 130 L 315 200 L 185 200 Z" fill="#15803d"/>
+    <text x="250" y="165" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="185" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#bbf7d0" text-anchor="middle">GREEN FARM</text>
+    
+    <!-- Eco leaf -->
+    <circle cx="250" cy="245" r="30" fill="#dcfce7"/>
+    <path d="M 250 225 C 265 235, 265 255, 250 265 C 235 255, 235 235, 250 225 Z" fill="#16a34a"/>
+    
+    <text x="250" y="305" font-family="'Inter', sans-serif" font-weight="800" font-size="15" fill="#0f172a" text-anchor="middle">100% SỮA TƯƠI</text>
+    <text x="250" y="325" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#15803d" text-anchor="middle">Ít Đường (180ml)</text>
+    <text x="250" y="360" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#64748b" text-anchor="middle">CHUẨN QUỐC TẾ</text>
+  </g>
+</svg>

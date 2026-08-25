@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg_nut" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="nut_box" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="40%" stop-color="#b45309"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <filter id="shadow_nut" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg_nut)"/>
+  <circle cx="250" cy="250" r="170" fill="#ffffff" opacity="0.65"/>
+  <ellipse cx="250" cy="420" rx="95" ry="18" fill="#fde68a" opacity="0.5"/>
+  
+  <g filter="url(#shadow_nut)">
+    <rect x="175" y="120" width="150" height="270" rx="14" fill="url(#nut_box)"/>
+    <rect x="185" y="130" width="130" height="250" rx="10" fill="#fffbeb"/>
+    
+    <path d="M 185 130 L 315 130 L 315 195 L 185 195 Z" fill="#78350f"/>
+    <text x="250" y="160" font-family="'Inter', sans-serif" font-weight="900" font-size="15" fill="#ffffff" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="182" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#fde68a" text-anchor="middle">SUPER NUT</text>
+    
+    <circle cx="250" cy="240" r="28" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+    <text x="250" y="247" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#78350f" text-anchor="middle">9</text>
+    <text x="250" y="285" font-family="'Inter', sans-serif" font-weight="800" font-size="13" fill="#78350f" text-anchor="middle">LOẠI HẠT CAO CẤP</text>
+    <text x="250" y="308" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#92400e" text-anchor="middle">Óc chó, Hạnh nhân...</text>
+    <text x="250" y="350" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#451a03" text-anchor="middle">Lốc 4 Hộp x 180ml</text>
+  </g>
+</svg>

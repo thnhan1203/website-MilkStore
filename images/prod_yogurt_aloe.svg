@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg_aloe" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdfa"/>
+      <stop offset="100%" stop-color="#ccfbf1"/>
+    </linearGradient>
+    <filter id="shadow_aloe" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg_aloe)"/>
+  <circle cx="250" cy="250" r="170" fill="#ffffff" opacity="0.65"/>
+  <ellipse cx="250" cy="410" rx="110" ry="18" fill="#99f6e4" opacity="0.5"/>
+  
+  <g filter="url(#shadow_aloe)">
+    <!-- Yogurt Cup -->
+    <path d="M 160 170 L 190 370 Q 250 390 310 370 L 340 170 Z" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+    <ellipse cx="250" cy="170" rx="90" ry="22" fill="#0d9488"/>
+    <ellipse cx="250" cy="168" rx="86" ry="18" fill="#14b8a6"/>
+    
+    <text x="250" y="240" font-family="'Inter', sans-serif" font-weight="900" font-size="18" fill="#0d9488" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="270" font-family="'Inter', sans-serif" font-weight="800" font-size="16" fill="#0f172a" text-anchor="middle">SỮA CHUA NHA ĐAM</text>
+    <text x="250" y="300" font-family="'Inter', sans-serif" font-weight="600" font-size="13" fill="#14b8a6" text-anchor="middle">Thanh Mát - Đẹp Da</text>
+    <text x="250" y="345" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#64748b" text-anchor="middle">Lốc 4 Hộp x 100g</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg_dielac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#ffedd5"/>
+    </linearGradient>
+    <linearGradient id="dielac_body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="35%" stop-color="#f97316"/>
+      <stop offset="70%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <linearGradient id="gold_dielac" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#eab308"/>
+      <stop offset="100%" stop-color="#ca8a04"/>
+    </linearGradient>
+    <filter id="shadow_dielac" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg_dielac)"/>
+  <circle cx="250" cy="250" r="180" fill="#ffffff" opacity="0.6"/>
+  <ellipse cx="250" cy="420" rx="100" ry="18" fill="#fed7aa" opacity="0.5"/>
+  
+  <g filter="url(#shadow_dielac)">
+    <ellipse cx="250" cy="140" rx="90" ry="20" fill="url(#gold_dielac)"/>
+    <ellipse cx="250" cy="138" rx="86" ry="17" fill="#fef08a"/>
+    
+    <path d="M 160 140 L 160 380 Q 250 410 340 380 L 340 140 Q 250 160 160 140 Z" fill="url(#dielac_body)"/>
+    <ellipse cx="250" cy="380" rx="90" ry="20" fill="url(#gold_dielac)"/>
+    
+    <rect x="170" y="195" width="160" height="145" rx="8" fill="#ffffff"/>
+    <text x="250" y="225" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ea580c" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="250" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#0f172a" text-anchor="middle">Dielac Alpha</text>
+    <text x="250" y="272" font-family="'Inter', sans-serif" font-weight="800" font-size="14" fill="#d97706" text-anchor="middle">GOLD IQ 4 (900g)</text>
+    <text x="250" y="315" font-family="'Inter', sans-serif" font-weight="600" font-size="10" fill="#64748b" text-anchor="middle">PHÁT TRIỂN TRÍ NÃO &amp; CHIỀU CAO</text>
+  </g>
+</svg>

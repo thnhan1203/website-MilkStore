@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg_probi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff1f2"/>
+      <stop offset="100%" stop-color="#ffe4e6"/>
+    </linearGradient>
+    <linearGradient id="bottleBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="shadow_probi" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg_probi)"/>
+  <circle cx="250" cy="250" r="170" fill="#ffffff" opacity="0.7"/>
+  
+  <ellipse cx="250" cy="410" rx="90" ry="16" fill="#fda4af" opacity="0.3"/>
+  
+  <!-- Probi Bottles Group -->
+  <g filter="url(#shadow_probi)">
+    <!-- Main Bottle -->
+    <rect x="200" y="140" width="100" height="240" rx="30" fill="url(#bottleBody)" stroke="#f43f5e" stroke-width="3"/>
+    <rect x="220" y="105" width="60" height="40" rx="6" fill="#f43f5e"/>
+    <!-- Ribs on bottle -->
+    <path d="M 200 240 Q 250 260 300 240" stroke="#f43f5e" stroke-width="2" fill="none"/>
+    <path d="M 200 320 Q 250 340 300 320" stroke="#f43f5e" stroke-width="2" fill="none"/>
+    
+    <!-- Label -->
+    <rect x="208" y="170" width="84" height="60" rx="6" fill="#f43f5e"/>
+    <text x="250" y="195" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#ffffff" text-anchor="middle">Probi</text>
+    <text x="250" y="215" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#fef08a" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="290" font-family="'Inter', sans-serif" font-weight="800" font-size="12" fill="#e11d48" text-anchor="middle">65ml x 5</text>
+    <text x="250" y="360" font-family="'Inter', sans-serif" font-weight="700" font-size="10" fill="#0f172a" text-anchor="middle">13 TỶ LỢI KHUẨN</text>
+  </g>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="100%" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="canBody" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="30%" stop-color="#38bdf8"/>
+      <stop offset="70%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <rect width="500" height="500" fill="url(#bg)"/>
+  <circle cx="250" cy="250" r="180" fill="#ffffff" opacity="0.6"/>
+  
+  <!-- Can Shadow -->
+  <ellipse cx="250" cy="420" rx="100" ry="18" fill="#94a3b8" opacity="0.4"/>
+  
+  <!-- Tin Can -->
+  <g filter="url(#shadow)">
+    <!-- Top Rim -->
+    <ellipse cx="250" cy="140" rx="90" ry="20" fill="url(#gold)"/>
+    <ellipse cx="250" cy="138" rx="86" ry="17" fill="#fef3c7"/>
+    
+    <!-- Body -->
+    <path d="M 160 140 L 160 380 Q 250 410 340 380 L 340 140 Q 250 160 160 140 Z" fill="url(#canBody)"/>
+    
+    <!-- Bottom Rim -->
+    <ellipse cx="250" cy="380" rx="90" ry="20" fill="url(#gold)"/>
+    
+    <!-- Label Details -->
+    <rect x="170" y="190" width="160" height="150" rx="8" fill="#ffffff" opacity="0.95"/>
+    <text x="250" y="225" font-family="'Inter', sans-serif" font-weight="800" font-size="18" fill="#0284c7" text-anchor="middle">VINAMILK</text>
+    <text x="250" y="250" font-family="'Inter', sans-serif" font-weight="900" font-size="16" fill="#d97706" text-anchor="middle">SURE PREVENT</text>
+    <text x="250" y="270" font-family="'Inter', sans-serif" font-weight="700" font-size="12" fill="#0f172a" text-anchor="middle">GOLD 900g</text>
+    
+    <path d="M 235 295 C 235 285, 265 285, 265 295 C 265 305, 250 315, 250 315 C 250 315, 235 305, 235 295 Z" fill="#ef4444"/>
+    <text x="250" y="330" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#64748b" text-anchor="middle">TĂNG SỨC ĐỀ KHÁNG</text>
+  </g>
+</svg>
