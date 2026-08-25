@@ -15,7 +15,7 @@ const products = [
         price: 385000,
         oldPrice: 420000,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&q=80&w=500",
+        image: "./images/sua-cho-be-optimum-gold-3.jpg",
         description: "Sữa bột công thức Vinamilk Optimum Gold số 4 dành cho trẻ từ 2 tuổi trở lên. Giàu DHA, ARA, Nucleotides giúp phát triển não bộ và hệ miễn dịch."
     },
     {
@@ -26,7 +26,7 @@ const products = [
         price: 360000,
         oldPrice: null,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80&w=500",
+        image: "./images/thung-48-hop-sua-tuoi-tiet-trung-it-duong-th-true-milk-110ml-202211171539239485.jpg",
         description: "Sữa tươi tiệt trùng TH true MILK ít đường, nguồn gốc 100% tự nhiên từ bò sữa tươi, không chất bảo quản."
     },
     {
@@ -37,7 +37,7 @@ const products = [
         price: 780000,
         oldPrice: 850000,
         badge: "sale",
-        image: "https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&q=80&w=500",
+        image: "./images/suabotAbbott.jpg",
         description: "PediaSure BA giúp bé tăng cân và phát triển chiều cao với Triple Sure — hệ thống 3 protein đặc biệt cùng hơn 30 dưỡng chất thiết yếu."
     },
     {
@@ -48,7 +48,7 @@ const products = [
         price: 850000,
         oldPrice: 920000,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1600718374662-0483d2b9da44?auto=format&fit=crop&q=80&w=500",
+        image: "./images/sua-ensure-gold.jpg",
         description: "Ensure Gold cung cấp dinh dưỡng cân bằng cho người lớn và người cao tuổi, hỗ trợ sức khỏe cơ bắp và xương chắc khỏe."
     },
     {
@@ -59,7 +59,7 @@ const products = [
         price: 30000,
         oldPrice: null,
         badge: null,
-        image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&q=80&w=500",
+        image: "./images/VinamikProbi.jpg",
         description: "Sữa chua uống Vinamilk ProBI chứa vi khuẩn Probiotic L.Casei có lợi, hỗ trợ hệ tiêu hóa khỏe mạnh."
     },
     {
@@ -70,7 +70,7 @@ const products = [
         price: 580000,
         oldPrice: 620000,
         badge: "new",
-        image: "https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=500",
+        image: "./images/sua-frisolac.jpg",
         description: "Frisolac Gold số 2 với công thức LOCK®NUTRI bảo toàn dưỡng chất tự nhiên, phù hợp cho bé 6-12 tháng tuổi."
     },
     {
@@ -81,7 +81,7 @@ const products = [
         price: 290000,
         oldPrice: 320000,
         badge: "new",
-        image: "https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&q=80&w=500",
+        image: "./images/VinamikDielac.jpg",
         description: "Vinamilk Mom cung cấp DHA, Axit Folic, Canxi và nhiều dưỡng chất thiết yếu hỗ trợ thai kỳ khỏe mạnh."
     },
     {
@@ -92,7 +92,7 @@ const products = [
         price: 620000,
         oldPrice: null,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&q=80&w=500",
+        image: "./images/ensureMeBau.jpg",
         description: "Ensure dành cho bà bầu bổ sung đầy đủ 28 vitamin và khoáng chất cần thiết, đặc biệt là DHA, Choline, Sắt, Canxi."
     },
     {
@@ -103,8 +103,7 @@ const products = [
         price: 1250000,
         oldPrice: 1400000,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=500",
-        description: "ON Gold Standard Whey là sản phẩm whey protein số 1 thế giới. 24g protein/serving, ít carbs và chất béo."
+        image: "./images/protein-optimum.jpg",
     },
     {
         id: 10,
@@ -114,7 +113,7 @@ const products = [
         price: 145000,
         oldPrice: 165000,
         badge: "sale",
-        image: "https://images.unsplash.com/photo-1571091655789-405eb7a3a3a8?auto=format&fit=crop&q=80&w=500",
+        image: "./images/Milo1.avif",
         description: "Nestlé Milo giàu canxi, vitamin D, B2, B3 và năng lượng ACTIGEN-E hỗ trợ bé năng động, vui khỏe mỗi ngày."
     },
     {
@@ -125,7 +124,7 @@ const products = [
         price: 475000,
         oldPrice: 520000,
         badge: "hot",
-        image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=500",
+        image: "./images/anlene.jpg",
         description: "Anlene Gold 3X giàu Canxi, Vitamin D3, Collagen, Protein — chuyên biệt cho người trên 45 tuổi, bảo vệ xương khớp."
     },
     {
@@ -136,7 +135,7 @@ const products = [
         price: 980000,
         oldPrice: null,
         badge: "new",
-        image: "https://images.unsplash.com/photo-1579722820903-b92e39a30321?auto=format&fit=crop&q=80&w=500",
+        image: "./images/muscle.webp",
         description: "Muscle Milk cung cấp 32g protein, EFAs và phức hợp Cytovite™ gồm 20 vitamin và khoáng chất, hỗ trợ phục hồi sau luyện tập."
     }
 ];

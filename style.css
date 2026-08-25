@@ -739,7 +739,7 @@ header.scrolled {
 .product-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
@@ -962,14 +962,26 @@ header.scrolled {
 }
 
 /* About Image */
-.about-image { position: relative; }
+.about-image {
+    position: relative;
+    background: #F7F7ED;
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--border);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 420px;
+}
 
 .about-image img {
     border-radius: var(--radius-lg);
     width: 100%;
-    object-fit: cover;
-    height: 420px;
-    box-shadow: var(--shadow-lg);
+    height: 100%;
+    object-fit: contain;
+    padding: 2rem 2.5rem;
+    display: block;
+    box-shadow: none;
 }
 
 .about-badge-float {
@@ -1097,47 +1109,79 @@ header.scrolled {
     transform: translateY(-3px);
 }
 
-/* Newsletter */
+/* Newsletter & Registration Form */
 .newsletter-form {
     display: flex;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.55rem;
     margin-top: 1rem;
 }
 
-.newsletter-form input {
-    flex: 1;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 0.65rem 1rem;
-    border-radius: 50px;
+.newsletter-form__group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.newsletter-form__group i {
+    position: absolute;
+    left: 0.85rem;
+    color: var(--primary-light);
+    font-size: 0.8rem;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+.newsletter-form__group input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0.55rem 0.85rem 0.55rem 2.2rem;
+    border-radius: var(--radius-sm);
     color: white;
-    font-size: 0.875rem;
+    font-size: 0.825rem;
     outline: none;
     transition: var(--tr);
 }
 
-.newsletter-form input:focus {
-    border-color: var(--primary);
-    background: rgba(255,255,255,0.12);
+.newsletter-form__group input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
 }
 
-.newsletter-form button {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+.newsletter-form__group input:focus {
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
+}
+
+.newsletter-form__submit {
+    width: 100%;
+    height: 38px;
+    border-radius: var(--radius-sm);
     background: var(--gradient);
     border: none;
     color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
     transition: var(--tr);
-    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(214, 51, 132, 0.35);
+    margin-top: 0.2rem;
 }
 
-.newsletter-form button:hover {
-    opacity: 0.85;
-    transform: scale(1.05);
+.newsletter-form__submit:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(214, 51, 132, 0.45);
+}
+
+.newsletter-form__submit:active {
+    transform: translateY(0);
 }
 
 .footer-bottom {
@@ -1920,6 +1964,9 @@ header.scrolled {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    overflow: hidden;
+    background: #ffffff;
+    border-right: 1px solid rgba(0, 0, 0, 0.07);
 }
 .brand-logo-text {
     font-weight: 900;
@@ -1936,20 +1983,34 @@ header.scrolled {
     display: block;
     opacity: 0.9;
 }
+.brand-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 8px 10px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.brand-card:hover .brand-card__img {
+    transform: scale(1.06);
+}
 /* Brand colors */
-.brand-card__logo--vinamilk { background: #007AC2; }
-.brand-card__logo--th       { background: #00A651; }
-.brand-card__logo--abbott   { background: #E31837; }
-.brand-card__logo--nestle   { background: #C8001E; }
-.brand-card__logo--friso    { background: #F39200; }
-.brand-card__logo--nutricare{ background: #00A99D; }
+.brand-card__logo--vinamilk { background: #0313B0; border-right: none; }
+.brand-card__logo--th       { background: #ffffff; }
+.brand-card__logo--abbott   { background: #ffffff; }
+.brand-card__logo--nestle   { background: #ffffff; }
+.brand-card__logo--frico    { background: #ff0000; border-right: none; }
+.brand-card__logo--friso    { background: #ff0000; border-right: none; }
+.brand-card__logo--nutricare{ background: #ffffff; }
 
-.brand-card:hover .brand-card__logo--vinamilk { background: #005f9e; }
-.brand-card:hover .brand-card__logo--th       { background: #007a3e; }
-.brand-card:hover .brand-card__logo--abbott   { background: #b5001e; }
-.brand-card:hover .brand-card__logo--nestle   { background: #9a0017; }
-.brand-card:hover .brand-card__logo--friso    { background: #d47f00; }
-.brand-card:hover .brand-card__logo--nutricare{ background: #007a72; }
+.brand-card:hover .brand-card__logo--vinamilk { background: #0313B0; }
+.brand-card:hover .brand-card__logo--th       { background: #ffffff; }
+.brand-card:hover .brand-card__logo--abbott   { background: #ffffff; }
+.brand-card:hover .brand-card__logo--nestle   { background: #ffffff; }
+.brand-card:hover .brand-card__logo--frico    { background: #ff0000; }
+.brand-card:hover .brand-card__logo--friso    { background: #ff0000; }
+.brand-card:hover .brand-card__logo--nutricare{ background: #ffffff; }
 
 .brand-card__info {
     padding: 0.9rem 1rem;
